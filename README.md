@@ -2,25 +2,25 @@
 封装GreenDao数据库的增删改查使用以及版本升级
 ## 使用方法
 ### 步骤1：
-在project.gradle添加
-    buildscript {
-        dependencies {
-            classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
-        }
-    }
+在project.gradle添加 </br>
+    buildscript { </br>
+        dependencies { </br>
+            classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin  </br>
+        }  </br>
+    }   </br>
 
 ### 步骤2：
-在app.gradle添加
-    apply plugin: 'org.greenrobot.greendao'
-    //数据库版本号以及文件路径
-    greendao{
-         //版本号，升级时可配置
-                schemaVersion 4
-                daoPackage 'com.ytjr.myapplication.dao'
-                targetGenDir 'src/main/java'
-    }
-     //添加依赖
-     compile 'org.greenrobot:greendao:3.2.0'
+在app.gradle添加  </br>
+    apply plugin: 'org.greenrobot.greendao'  </br>
+    //数据库版本号以及文件路径  </br>
+    greendao{  </br>
+         //版本号，升级时可配置  </br>
+                schemaVersion 4  </br>
+                daoPackage 'com.ytjr.myapplication.dao'  </br>
+                targetGenDir 'src/main/java'  </br>
+    }  </br>
+     //添加依赖  </br>
+     compile 'org.greenrobot:greendao:3.2.0'  </br>
 
 ## 增删改查 版本升级封装
 
@@ -51,9 +51,9 @@
  
  #### 查询条件
  
-    //根据id查询</br>
-    daoSession.getStudentDao().queryBuilder().where(StudentDao.Properties.Id.eq(id)).build().unique();</br>
-    eq用来判断两个属性是否对等，unique()返回一个对象</br>
+    //根据id查询
+    daoSession.getStudentDao().queryBuilder().where(StudentDao.Properties.Id.eq(id)).build().unique();
+    eq用来判断两个属性是否对等，unique()返回一个对象
  
  ## 创建实体类（创建好后，需要编译一下）
  参考Student类</br>
@@ -68,15 +68,16 @@
      targetGenDir 'src/main/java' </br>
     }
  3:DbOpenHelper中，如果新版本号大于旧版本，迁移数据库，否则删除重建数据库 </br>
-     if (newVersion > oldVersion) {
-             // 升级、数据库迁移操作
-             MigrationHelper.getInstance().migrate(db, UserDao.class);
-         }else {
-             // 默认操作
-             dropAllTables(db, true);
-             onCreate(db);
+     if (newVersion > oldVersion) { </br>
+             // 升级、数据库迁移操作 </br>
+             MigrationHelper.getInstance().migrate(db, UserDao.class); </br>
+         }else { </br>
+             // 默认操作 </br>
+             dropAllTables(db, true); </br>
+             onCreate(db); </br>
          }
          
- 4：编译一下，再运行。
- 本例将GreenDao进行一定程度上的封装，对于需要用的方法，
- 在DbHelper中添加相应，在AppDbHelper中实现，在ui中引用，在application中获取AppDbHelper的实例。
+ 4：编译一下，再运行。 </br>
+ 本例将GreenDao进行一定程度上的封装，对于需要用的方法:
+   在DbHelper中添加相应，在AppDbHelper中实现  </br>
+    在ui中引用，在application中获取AppDbHelper的实例。
