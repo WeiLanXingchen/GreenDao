@@ -71,7 +71,7 @@
  @Id(autoincrement = true) 标注键，作为实体id，自增
  @Property 标注属性
  
- ## 数据库更新
+ ## 数据库升级
  1：修改schemaVersion
     greendao{
      schemaVersion 3
