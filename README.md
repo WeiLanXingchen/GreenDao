@@ -62,10 +62,10 @@
  @Property 标注属性</br>
  
  ## 数据库升级
- 1：修改schemaVersion  
+ 1：修改schemaVersion
     greendao{
      schemaVersion 3
-     targetGenDir 'src/main/java'
+     targetGenDir 'src/main/java'  
     }
 
  2:DbOpenHelper中，如果新版本号大于旧版本，迁移数据库，否则删除重建数据库
