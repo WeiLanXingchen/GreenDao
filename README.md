@@ -68,14 +68,14 @@
      targetGenDir 'src/main/java'  </br>
     }  </br>
 
- 2:DbOpenHelper中，如果新版本号大于旧版本，迁移数据库，否则删除重建数据库
-     if (newVersion > oldVersion) {
-             // 升级、数据库迁移操作
-             MigrationHelper.getInstance().migrate(db, UserDao.class);
-         }else {
-             // 默认操作
-             dropAllTables(db, true);
-             onCreate(db);
+ 2:DbOpenHelper中，如果新版本号大于旧版本，迁移数据库，否则删除重建数据库  </br>
+     if (newVersion > oldVersion) {  </br>
+             // 升级、数据库迁移操作  </br>
+             MigrationHelper.getInstance().migrate(db, UserDao.class);  </br>
+         }else {  </br>
+             // 默认操作  </br>
+             dropAllTables(db, true);  </br>
+             onCreate(db);  </br>
          }
          
  3：编译一下，再运行。
