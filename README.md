@@ -67,7 +67,8 @@
      schemaVersion 3 </br>
      targetGenDir 'src/main/java' </br>
     }
- 3:DbOpenHelper中，如果新版本号大于旧版本，迁移数据库，否则删除重建数据库 </br>
+
+ 2:DbOpenHelper中，如果新版本号大于旧版本，迁移数据库，否则删除重建数据库 </br>
      if (newVersion > oldVersion) { </br>
              // 升级、数据库迁移操作 </br>
              MigrationHelper.getInstance().migrate(db, UserDao.class); </br>
@@ -77,7 +78,7 @@
              onCreate(db); </br>
          }
          
- 4：编译一下，再运行。 </br>
+ 3：编译一下，再运行。 </br>
  本例将GreenDao进行一定程度上的封装，对于需要用的方法:
    在DbHelper中添加相应，在AppDbHelper中实现  </br>
     在ui中引用，在application中获取AppDbHelper的实例。
