@@ -1,16 +1,15 @@
 # GreenDa
 封装GreenDao数据库的增删改查使用以及版本升级
-## 使用
-### step1：
+## 使用方法
+### 步骤1：
 在project.gradle添加
     buildscript {
         dependencies {
-            classpath 'com.android.tools.build:gradle:2.3.0'
             classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
         }
     }
 
-### step2：
+### 步骤2：
 在app.gradle添加
     apply plugin: 'org.greenrobot.greendao'
     //数据库版本号以及文件路径
@@ -20,19 +19,16 @@
                 daoPackage 'com.ytjr.myapplication.dao'
                 targetGenDir 'src/main/java'
     }
-     // database
+     //添加依赖
      compile 'org.greenrobot:greendao:3.2.0'
 
-## 增删改查封装
+## 增删改查 版本升级封装
 
 ### 增（insert）
 
- |     方法名    |   介绍    | 
- |--------------|:----------|
- |    insert    |插入一条数据|
- |insertInTx| 插入一条或多条数据|
- |insertOrReplace|插入或替换|
- |insertOrReplaceInTx|插入或替换一条或者多条数据|
+ insertInTx：插入一条或多条数据|
+ insertOrReplace：插入或替换|
+ insertOrReplaceInTx：插入或替换一条或者多条数据|
 
 ### 删（delete）
 
