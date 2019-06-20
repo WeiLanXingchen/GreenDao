@@ -62,31 +62,8 @@
  #### 查询条件
  
     //根据id查询
-    daoSession.getUserDao().queryBuilder().where(UserDao.Properties.Id.eq(id)).build().unique();
- 
- eq用来判断两个属性是否对等，unique()返回一个对象
- 
-    //in查询包含在内的列表
-    QueryBuilder<User> qb=daoSession.getUserDao().queryBuilder();
-    qb.where(UserDao.Properties.Id.in(1,2,3,4,5)).build().list();
-    
-    //获取1970年10月或以后出生的名为“Joe”的用户
-    QueryBuilder<User> qb = userDao.queryBuilder();
-    qb.where(Properties.FirstName.eq("Joe"),
-    qb.or(Properties.YearOfBirth.gt(1970),
-    qb.and(Properties.YearOfBirth.eq(1970), Properties.MonthOfBirth.ge(10))));
-    List<User> youngJoes = qb.list();
-    
-    // order by last name
-    queryBuilder.orderAsc(Properties.LastName);
-     
-    // in reverse
-    queryBuilder.orderDesc(Properties.LastName);
-     
-    // order by last name and year of birth
-    queryBuilder.orderAsc(Properties.LastName).orderDesc(Properties.YearOfBirth);
-    
-
+    daoSession.getStudentDao().queryBuilder().where(StudentDao.Properties.Id.eq(id)).build().unique();
+    eq用来判断两个属性是否对等，unique()返回一个对象
  
  ## 创建实体类（创建好后，需要编译一下）
  参考Student类
