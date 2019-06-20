@@ -26,9 +26,9 @@
 
 ### 增（insert）
 
- insertInTx：插入一条或多条数据|
- insertOrReplace：插入或替换|
- insertOrReplaceInTx：插入或替换一条或者多条数据|
+ insertInTx：插入一条或多条数据</br>
+ insertOrReplace：插入或替换
+ insertOrReplaceInTx：插入或替换一条或者多条数据
 
 ### 删（delete）
 
